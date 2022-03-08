@@ -46,8 +46,7 @@ pipeline {
         
         stage('Build Image'){
             steps{
-                //TODO: Rename {Microservice}-Dockerfiles to Dockerfile to make pipeline reusable between repositories
-                sh "docker build -t ${MICROSERVICE_IMAGE_NAME}:${TAG} Bank-Dockerfile"
+                sh "docker build -t ${MICROSERVICE_IMAGE_NAME}:${TAG} -f Bank-Dockerfile ."
             }
         }
         
@@ -55,7 +54,7 @@ pipeline {
         //     //TODO: Versioning for previous builds
         // }
         
-        stage('Deploy Image'){
+        stage('Push Image'){
             steps{
                 withAWS(credentials: 'jce-key') {
                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_USER_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
