@@ -1,0 +1,3 @@
+FROM openjdk:11.0.13-jre-slim
+ADD /bank-microservice/target/bank-microservice-0.1.0.jar .
+CMD [ "java", "-jar", "bank-microservice-0.1.0.jar" ]
