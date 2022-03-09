@@ -30,8 +30,8 @@ pipeline {
         
         stage('Sonar Scan'){
             steps {
-                withSonarQubeEnv(installationName: 'SonarQube-us-west-1'){
-                    sh 'mvn sonar:sonar'
+                withSonarQubeEnv(installationName: 'SonarQube-Server'){
+                    sh "mvn sonar:sonar -Dsonar.projectName=${MICROSERVICE_IMAGE_NAME}"
                 }
             }
         }
