@@ -7,8 +7,8 @@ pipeline {
     }
     
     environment {
-        AWS_REGION                  = credentials(AWS_REGION)
-        AWS_USER_ID                 = credentials(AWS_USER_ID)
+        AWS_REGION                  = credentials('AWS_REGION')
+        AWS_USER_ID                 = credentials('AWS_USER_ID')
         MICROSERVICE_IMAGE_NAME     = 'bank-microservice-jce'
         TAG                         = 'latest'
     }
