@@ -10,7 +10,7 @@ pipeline {
         AWS_REGION                  = credentials('AWS_REGION')
         AWS_USER_ID                 = credentials('AWS_USER_ID')
         MICROSERVICE_IMAGE_NAME     = 'bank-microservice-jce'
-        TAG                         = env.BUILD_NUMBER + "_" + env.BUILD_ID
+        TAG                         = BUILD_NUMBER + '_' + BUILD_ID
     }
 
     stages {
