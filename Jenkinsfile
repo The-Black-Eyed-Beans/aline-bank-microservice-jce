@@ -58,7 +58,7 @@ pipeline {
                     sh "docker tag ${MICROSERVICE_IMAGE_NAME}:${TAG} ${AWS_USER_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${MICROSERVICE_IMAGE_NAME}:${TAG}"
                     sh "docker push ${AWS_USER_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${MICROSERVICE_IMAGE_NAME}:${TAG}"
                     // Push current build to ECR as latest
-                    sh "docker tag ${MICROSERVICE_IMAGE_NAME}:${TAG} ${AWS_USER_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${MICROSERVICE_IMAGE_NAME}:${TAG}"
+                    sh "docker tag ${MICROSERVICE_IMAGE_NAME}:${TAG} ${AWS_USER_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${MICROSERVICE_IMAGE_NAME}:latest"
                     sh "docker push ${AWS_USER_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${MICROSERVICE_IMAGE_NAME}:latest"
                 }
             }
